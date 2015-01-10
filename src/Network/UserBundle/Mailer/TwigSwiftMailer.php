@@ -14,7 +14,7 @@ class TwigSwiftMailer extends BaseSwiftMailer
         $template = $this->parameters['template']['new'];
         $url = $this->router->generate(
             'fos_user_registration_confirm_email',
-            ['token' => $user->getConfirmationToken(), 'email' => $user->getEmail()],
+            ['token' => $user->getConfirmationToken()],
             true
         );
 
