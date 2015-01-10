@@ -37,6 +37,13 @@ class User extends BaseUser
     protected $email;
 
     /**
+     * @var string
+     *
+     * @Assert\Email()
+     */
+    protected $newEmail;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Network\StoreBundle\Entity\Group")
@@ -214,6 +221,24 @@ class User extends BaseUser
         }
 
         return $this;
+    }
+
+    /**
+     * @param string $email
+     * @return \Network\StoreBundle\Entity\User
+     */
+    public function setNewEmail($email)
+    {
+        $this->newEmail = $email;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNewEmail()
+    {
+        return $this->newEmail;
     }
 
     /**
